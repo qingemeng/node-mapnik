@@ -1,5 +1,8 @@
 {
   'includes': [ 'common.gypi' ],
+  'variables': { 
+    'enable_sse%':'true' 
+  },
   'targets': [
     {
       'target_name': '<(module_name)',
@@ -104,7 +107,10 @@
               'GCC_VERSION': 'com.apple.compilers.llvm.clang.1_0'
             }
           },
-        ]
+        ],
+        ['enable_sse == "true"', {
+          'defines' : [ 'SSE_MATH' ]
+        }]
       ]
     },
     {
